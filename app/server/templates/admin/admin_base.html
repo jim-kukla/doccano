@@ -64,19 +64,15 @@
     </div>
   </aside>
   <div class="column is-10 messages hero is-fullheight" id="message-feed">
-    {% if messages %}
-      <div>
-        <article class='message is-danger'>
-          <div class='message-body'>
-            <ul>
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-        </article>
-      </div>
-    {% endif %}
+    <div v-if="messages.length > 0">
+      <article class='message is-danger'>
+        <div class='message-body'>
+          <ul>
+            <li v-for="message in messages">[[ message ]]</li>
+          </ul>
+        </div>
+      </article>
+    </div>
     {% block content-area %}{% endblock %}
   </div>
 </div>
